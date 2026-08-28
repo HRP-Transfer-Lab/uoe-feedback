@@ -1,8 +1,12 @@
 # Important feedback constraints:
 
-1. total word count for each student's feedback report should not exceed 800 words.
-2. In addition to feedback paragraphs for each subcriteria, the feedback should include 3 single line bullet 'Strengths' and 3 single line bullet 'Areas for improvement' - based on the initial evaluation content.
-3. The stduent should be encouraged with interjections like 'Nice work.' 'Well explained.' 'Excellent job!' etc where relevant. Encouragement for work done well is encouraged in the feedback.
+1. The total word count for each student's feedback report should not exceed 800 words.
+2. Begin the feedback with exactly 3 single-line bullet points under **Strengths**, followed by exactly 3 single-line bullet points under **Areas for improvement**, based on the initial evaluation.
+3. After the two bullet sections, provide exactly one consolidated paragraph of student-facing feedback for each of the four main criteria. Do not divide the visible feedback into subcriterion sections and do not use tables.
+4. Continue to code and mark all 16 subcriteria internally so that the four consolidated criterion grades remain evidence-based and consistent.
+5. For each main criterion, calculate the arithmetic mean of its four subcriterion quality marks and round that mean to the nearest whole percentage, with `.5` rounded upwards. Report only this whole-number criterion grade in the feedback.
+6. Calculate the overall weighted result from these four reported whole-number criterion grades, using the main criterion weights of 30%, 25%, 20% and 25%. These whole-number criterion grades, rather than the unrounded subcriterion means, are the values used in the overall calculation. Apply any critical-component ceiling and then report the appropriate stepped overall mark.
+7. The student should be encouraged with interjections such as 'Nice work.', 'Well explained.' and 'Excellent job!' where relevant. Encouragement for work done well is welcomed in the feedback.
 
 Use a two-layer system:
 
@@ -15,7 +19,7 @@ This avoids the problem of treating mere presence as quality. A student can comp
 
 ### Criterion 1. Knowledge and Understanding — 30%
 
-Each subcriterion contributes **7.5%**.
+Each subcriterion contributes **equally to the raw Criterion 1 mean**.
 
 | Code    | Subcriterion                                                                      | What is being evaluated                                                                                                                                                                                                                                                                  | Critical? |
 | ------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -26,7 +30,7 @@ Each subcriterion contributes **7.5%**.
 
 ### Criterion 2. Critical Analysis and Evaluation — 25%
 
-Each subcriterion contributes **6.25%**.
+Each subcriterion contributes **equally to the raw Criterion 2 mean**.
 
 | Code    | Subcriterion                                             | What is being evaluated                                                                                                                                                                                                                                               | Critical? |
 | ------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -37,7 +41,7 @@ Each subcriterion contributes **6.25%**.
 
 ### Criterion 3. Communication — 20%
 
-Each subcriterion contributes **5%**.
+Each subcriterion contributes **equally to the raw Criterion 3 mean**.
 
 | Code    | Subcriterion                                    | What is being evaluated                                                                                                                                                                                                                                                                                | Critical?                                |
 | ------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
@@ -48,7 +52,7 @@ Each subcriterion contributes **5%**.
 
 ### Criterion 4. Reading and Referencing — 25%
 
-Each subcriterion contributes **6.25%**.
+Each subcriterion contributes **equally to the raw Criterion 4 mean**.
 
 | Code    | Subcriterion                                  | What is being evaluated                                                                                                                                                                                                                                 | Critical?                |
 | ------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
@@ -102,49 +106,27 @@ The important distinction is that the mark represents **quality**, whereas `0/0.
 
 # Weighting calculation
 
-The weighting is straightforward.
+First calculate the arithmetic mean of the four subcriterion quality marks within each main criterion. Round this mean to the nearest whole percentage, with `.5` rounded upwards. This rounded whole number is the reported criterion grade and is the value used in the overall calculation.
 
-For Criterion 1:
-
-$$
-1.1–1.4 = 7.5\% \text{ each}
-$$
-
-For Criterion 2:
+For each main criterion:
 
 $$
-2.1–2.4 = 6.25\% \text{ each}
+C_i = \operatorname{round}_{.5\uparrow}\left(\frac{s_{i1}+s_{i2}+s_{i3}+s_{i4}}{4}\right)
 $$
 
-For Criterion 3:
+The overall raw percentage is then:
 
 $$
-3.1–3.4 = 5\% \text{ each}
+\text{Overall} = (C_1 \times .30) + (C_2 \times .25) + (C_3 \times .20) + (C_4 \times .25)
 $$
 
-For Criterion 4:
+For example, subcriterion marks of `60, 60, 65, 70` give a raw Criterion 1 mean of `63.75`, which is reported as `64%`. Its contribution to the overall result is therefore:
 
 $$
-4.1–4.4 = 6.25\% \text{ each}
+64 \times .30 = 19.2
 $$
 
-The overall raw percentage is:
-
-$$
-\text{Overall} = \sum (Subcriterion\ Mark \times Subcriterion\ Weight)
-$$
-
-where the weighting is expressed as a decimal.
-
-For example, a mark of 65 for 1.1 contributes:
-
-$$
-65 \times .075 = 4.875
-$$
-
-to the final percentage.
-
-The 16 weighted contributions sum to 100%.
+The four main criterion weights sum to 100%. The displayed whole-number criterion grades are authoritative for the overall weighted calculation; the unrounded criterion means are not used at this stage.
 
 ---
 
@@ -270,7 +252,7 @@ That makes the 80+ category genuinely exceptional rather than simply "a slightly
 
 # Recommended final-mark procedure
 
-I would therefore grade each submission in five steps:
+I would therefore grade each submission in six steps:
 
 **1. Code coverage:**
 `0 / 0.5 / 1` for each of the 16 subcriteria.
@@ -278,12 +260,15 @@ I would therefore grade each submission in five steps:
 **2. Assign quality grade:**
 `0, 30, 35, 40, 45 ... 80, 85, 90` for each subcriterion.
 
-**3. Calculate weighted mean:**
-using 7.5%, 6.25%, 5% or 6.25% according to the criterion.
+**3. Calculate and round each main criterion grade:**
+take the arithmetic mean of the four subcriterion marks within each main criterion, then round it to the nearest whole percentage with `.5` rounded upwards.
 
-**4. Apply any critical-component ceiling.**
+**4. Calculate the weighted overall result:**
+use the four reported whole-number criterion grades and the main weights of 30%, 25%, 20% and 25%.
 
-**5. Report a stepped overall mark:**
+**5. Apply any critical-component ceiling.**
+
+**6. Report a stepped overall mark:**
 use the appropriate 5-point value within the resulting UK grade band.
 
 For example:
