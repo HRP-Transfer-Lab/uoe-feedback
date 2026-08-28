@@ -1,3 +1,9 @@
+# Important feedback constraints:
+
+1. total word count for each student's feedback report should not exceed 800 words.
+2. In addition to feedback paragraphs for each subcriteria, the feedback should include 3 single line bullet 'Strengths' and 3 single line bullet 'Areas for improvement' - based on the initial evaluation content.
+3. The stduent should be encouraged with interjections like 'Nice work.' 'Well explained.' 'Excellent job!' etc where relevant. Encouragement for work done well is encouraged in the feedback.
+
 Use a two-layer system:
 
 * a **coverage code** for each subcriterion: `0 = absent`, `0.5 = partially covered`, `1 = substantively covered`;
