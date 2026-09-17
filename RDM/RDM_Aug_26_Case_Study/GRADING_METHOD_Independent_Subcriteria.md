@@ -1,10 +1,10 @@
-# Independent subcriterion grading with a separate cohort-standardisation comparison
+# Independent subcriterion grading with cohort moderation and whole-number reporting
 
-Version 1.0 | 17 September 2026
+Version 1.1 | 17 September 2026
 
 ## Purpose and scope
 
-Assess the quality demonstrated on each subcriterion independently, then apply the assessment's declared weights. Preserve the resulting evidence-based marks. A separate statistical comparison can show how the overall results would look with a specified cohort mean and standard deviation.
+Assess the quality demonstrated on each subcriterion independently, then apply the assessment's declared weights. Preserve the resulting evidence-based marks. After independent marking, apply the agreed cohort standardisation to the overall marks and report mean-preserving whole-number moderated grades. Retain the independently assessed marks as the evidence record.
 
 This method can be adapted to other modules by replacing the learning outcomes, assignment-specific subcriteria, level descriptors and weights. It does not assume that subcriteria, criteria or overall marks follow a normal distribution.
 
@@ -62,7 +62,7 @@ Criterion mark: C_ic = sum_j(a_cj × M_ij).
 
 Overall assessed mark: G_i = sum_c(W_c × C_ic).
 
-Equal within-criterion weights give C_ic = mean of its subcriterion marks. Do not round constituent or criterion values before aggregation. Display final inspection values to two decimal places; retain full precision internally. A five-point input scale does not require five-point criterion means or overall totals.
+Equal within-criterion weights give C_ic = mean of its subcriterion marks. Do not round constituent or criterion values before aggregation. Display student marks as whole numbers, rounding criterion averages and the assessed overall to the nearest integer for presentation only (halves upwards). Retain full precision internally and use it for aggregation and moderation. Distribution statistics retain decimals. A five-point input scale does not require five-point criterion means or overall totals.
 
 Only apply institutional penalties or overall caps when they have been explicitly established for this assessment. Record them separately from subcriterion marks and avoid double-counting. Do not borrow caps from the CLQ assignment. This implementation applies no additional overall caps or penalties.
 
@@ -72,7 +72,7 @@ Report N, mean, population SD, minimum and maximum for each subcriterion, each c
 
 The overall variance depends on covariance as well as individual variability: Var(G) = sum_j(w_j² Var(M_j)) + 2 sum_(j<k)(w_j w_k Cov(M_j,M_k)), where w_j = W_c × a_cj.
 
-## 7. Optional separate standardisation comparison
+## 7. Overall moderation to the agreed cohort target
 
 For an explicitly chosen target mean mu_target and population SD sigma_target, calculate:
 
@@ -80,17 +80,35 @@ G_standardised_i = mu_target + sigma_target × (G_i − cohort_mean(G)) / popula
 
 For this cohort, mu_target = 65 and sigma_target = 10. This transformation preserves ordering, ties and relative differences. It gives exactly those moments before rounding, provided the original overall SD is positive. It does not make a non-normal distribution normal.
 
-Label the transformed result **standardised comparison**, not the independently assessed or officially awarded mark. Keep it alongside G_i and the adjustment G_standardised_i − G_i. It does not equal the weighted sum of the unchanged subcriterion marks. Do not change subcriterion marks to reconstruct it.
+The user has adopted this transformation for the moderated overall grades. Retain the full-precision standardised result alongside the independently assessed overall, then calculate the whole-number **moderated overall** using the rule below. The moderated overall is the adjusted grade for inspection. It does not equal the weighted sum of unchanged subcriterion marks; the difference is an explicit overall moderation adjustment. Do not change evidence-based subcriterion marks to reconstruct it.
 
 If the original SD is zero, standardisation is undefined and should remain unavailable. If transformed values lie outside 0–100, flag them; do not silently clip them, because clipping changes the moments. Use the same students in the mean, SD and transformation. Use the population denominator N consistently.
 
 Rank-normal transformation is not part of this method. Neither subcriteria nor the overall distribution are forced to be normal. If a future assessment adopts rank-normalisation, document it as a distinct norm-referenced procedure.
 
-## 8. Deliverables and checks
+## 8. Mean-preserving whole-number rounding
 
-Provide one row per participant with all subcriterion percentage marks, criterion means, assessed weighted overall mark, separate standardised comparison and the adjustment. Preserve exact participant IDs. Include the competence codes, mark rationales, source identifiers and moderation flags as supporting material.
+Subcriterion percentage marks are already integers in five-point steps. Display criterion averages and the independently assessed overall as whole numbers, while retaining the unrounded values in the calculation. Stage 1 codes remain 0, 0.5 and 1 because they are competence codes, not percentage marks.
 
-Check participant completeness, allowed mark increments, weights summing to 1, arithmetic, population-SD calculations, ties, unrounded reconciliation, and the separation of assessed and transformed marks. Record any final rounding convention explicitly. Treat outputs as provisional for inspection until the identified moderation questions are resolved; do not publish grades or student feedback automatically.
+For the final moderated overall, ordinary independent rounding can move the class mean away from its target. Use the largest-remainder procedure instead:
+
+1. Let S_i be each full-precision standardised overall. Set F_i = floor(S_i) and r_i = S_i − F_i.
+2. Set the required class total T = N × target mean. This must be an integer for an exact whole-number solution.
+3. Calculate K = T − sum(F_i).
+4. Round up the K scores with the largest fractional remainders; leave the others rounded down. Thus H_i = F_i + 1 for those K students and H_i = F_i otherwise.
+5. Check sum(H_i) = T, mean(H_i) = target mean, all H_i are integers within 0–100, and ordering is not reversed.
+
+This minimises total squared rounding error among floor/ceiling allocations with the required total. A few scores above .5 can round down, or scores below .5 can round up, to preserve the mean. Resolve equal remainders in ascending participant-ID order for reproducibility. If this would split identical underlying overall scores, flag the tie for manual review: equal treatment of ties and an exact integer total can conflict. If the target total is non-integer, the transformed scores are outside bounds, or the original SD is zero, do not silently manufacture a solution; review the target or constraints.
+
+For this cohort N = 17 and target mean = 65, so the required total is **1,105**. Ordinary nearest-integer rounding gives 1,107. Largest-remainder rounding instead gives exactly 1,105. Participant_555077_assignsubmission_file and Participant_555078_assignsubmission_file round down rather than up compared with ordinary rounding. No tied underlying scores require adjudication.
+
+The pre-rounding population SD is exactly 10. Integer rounding will generally change it slightly, and the observed post-rounding SD must be reported. Exact mean 65 takes priority over exact SD 10 at the final integer stage. No normal distribution is imposed.
+
+## 9. Deliverables and checks
+
+Provide one row per participant with all subcriterion percentage marks, criterion means, assessed weighted overall mark, standardised overall before final rounding, and whole-number moderated overall. Retain the unrounded calculations and rounding remainders in the workbook for audit. Preserve exact participant IDs. Include the competence codes, mark rationales, source identifiers and moderation flags as supporting material.
+
+Check participant completeness, allowed mark increments, weights summing to 1, arithmetic, population-SD calculations, ties, unrounded reconciliation, and the separation of assessed and moderated marks, and the exact integer class total. Record any final rounding convention explicitly. Treat outputs as provisional for inspection until the identified moderation questions are resolved; do not publish grades or student feedback automatically.
 
 ## Current RDM Case Study configuration
 
@@ -104,4 +122,4 @@ Check participant completeness, allowed mark increments, weights summing to 1, a
 
 All subcriteria within each criterion are equally weighted. Each percentage mark is assessed independently of these weights.
 
-Sources: the repository Case Study rubric; supplied Level 5 descriptors; calibrated Stage 1 workbook; and the user's agreed independent-marking and separate-standardisation instructions. The uploaded Level 5 document is the source used for this calibration, not a claim about subsequently revised institutional policy.
+Sources: the repository Case Study rubric; supplied Level 5 descriptors; calibrated Stage 1 workbook; and the user's agreed independent-marking, overall moderation and whole-number reporting instructions. The uploaded Level 5 document is the source used for this calibration, not a claim about subsequently revised institutional policy.
