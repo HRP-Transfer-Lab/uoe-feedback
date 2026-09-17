@@ -1,6 +1,6 @@
 # Student feedback instructions
 
-Version 1.0 | 17 September 2026
+Version 1.1 | 17 September 2026
 
 Use these instructions after independent scoring, cross-cohort calibration, percentage marking and any agreed overall moderation are complete. For the calculations, follow [the grading method](GRADING_METHOD_Independent_Subcriteria.md). Stage 1 remains a separate competence-scoring stage and does not produce feedback.
 
@@ -17,6 +17,44 @@ Current RDM configuration:
 - Weights: Knowledge and Understanding 25%; Critical Analysis and Evaluation 25%; Application of Theory to Persuasive Blog Writing 25%; Presentation and Academic Conventions 10%; Reading and Referencing 15%.
 - Moderation: standardise full-precision assessed overall marks, then use mean-preserving whole-number rounding.
 - Final overall source: **Moderated overall**, not **Assessed overall** or the rounded display of the pre-rounding standardised score.
+
+## University rubric, weights and the distinction from cohort moderation
+
+The source is the supplied **University of Essex Online – Undergraduate Grading Criteria NQF Level 5**, **Version 1 – August 2021**, file `L5 Assignment Grading Criteria (1)(1).pdf`. The document notes that assessment-specific weights may vary; the following are the weights shown in that supplied document and adopted for this Case Study.
+
+| Main criterion in this assignment | University rubric category | Weight | Source page |
+| --- | --- | ---: | --- |
+| Knowledge and Understanding | Knowledge and understanding of the subject area / conceptual issues | 25% | 1 |
+| Critical Analysis and Evaluation | Critical Analysis and Evaluation | 25% | 2 |
+| Application of Theory to Persuasive Blog Writing | Application of theory to practice and/or real-world example | 25% | 1–2 |
+| Presentation and Academic Conventions | Presentation Style and Structure | 10% | 3–4 |
+| Reading and Referencing | Reading and Referencing | 15% | 3 |
+| **Total** | | **100%** | |
+
+The Case Study's criterion order differs from the document's printed order. Match categories by meaning, not row position. The rubric's level descriptors guide quality judgements; the Case Study subcriteria operationalise those categories. Equal weighting of subcriteria within a main criterion is our declared implementation, not a requirement explicitly stated in the university document.
+
+Calculate the independently assessed overall using unrounded criterion averages:
+
+`G = 0.25 × C1 + 0.25 × C2 + 0.25 × C3 + 0.10 × C4 + 0.15 × C5`.
+
+**Worked arithmetic for Participant_555059_assignsubmission_file:**
+
+| Criterion | Unrounded average (shown to 6 decimals) | Weighted contribution (shown to 6 decimals) |
+| --- | ---: | ---: |
+| C1 | 59.000000 | 14.750000 |
+| C2 | 73.333333 | 18.333333 |
+| C3 | 73.000000 | 18.250000 |
+| C4 | 72.857143 | 7.285714 |
+| C5 | 71.666667 | 10.750000 |
+| **Assessed overall** | | **69.369048** |
+
+The displayed independent criterion grades are 59, 73, 73, 73 and 72. Their full-precision weighted overall is **69.369047619...**, reported as **69%** before moderation. Do not aggregate the rounded headings.
+
+The **75%** shown as the student's overall in the worked feedback is the **moderated overall**, after the separately agreed cohort transformation and integer allocation. With cohort mean 60.465336134... and population SD 8.756135836..., the transformation `65 + 10 × (69.369047619... − 60.465336134...) / 8.756135836...` gives 75.168539698..., allocated **75** by mean-preserving rounding.
+
+**The university weighting calculation produces 69%, not 75%.** The supplied university rubric does not specify a target class mean of 65, SD of 10, or a rule authorising this cohort normalisation. Those are the user's chosen calibration settings and must not be described as university requirements or evidence of institutional approval. Whether a moderated result can be used as the officially awarded mark is a separate policy question not established by this document. Preserve the distinction in feedback and audit records.
+
+For another assignment, verify its assessment-specific rubric and weights rather than importing these values or the CLQ weights. Link the exact university source/version and record the separate moderation configuration.
 
 ## Use the hard numbers faithfully
 

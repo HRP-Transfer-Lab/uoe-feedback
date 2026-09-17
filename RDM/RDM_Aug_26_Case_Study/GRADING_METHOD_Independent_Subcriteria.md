@@ -1,6 +1,6 @@
 # Independent subcriterion grading with cohort moderation and whole-number reporting
 
-Version 1.2 | 17 September 2026
+Version 1.3 | 17 September 2026
 
 ## Purpose and scope
 
@@ -132,6 +132,8 @@ Use [the worked example](FEEDBACK_EXAMPLE_Participant_555059.md) as a format and
 | C4 Presentation and Academic Conventions | 10% | 7 | 10% / 7 |
 | C5 Reading and Referencing | 15% | 6 | 2.5% |
 
-All subcriteria within each criterion are equally weighted. Each percentage mark is assessed independently of these weights.
+All subcriteria within each criterion are equally weighted. Each percentage mark is assessed independently of these weights. Equal within-criterion weighting is the declared implementation of the Case Study subcriteria; it is not explicitly prescribed by the supplied university document.
+
+For the exact mapping to the supplied university rubric, source pages and a worked weighted calculation, see [University rubric and weights in the feedback instructions](FEEDBACK_INSTRUCTIONS.md#university-rubric-weights-and-the-distinction-from-cohort-moderation). For Participant_555059_assignsubmission_file the university-weighted independent mark is 69.369047619... (69% rounded); 75% is the separately moderated overall. The supplied university rubric does not establish a target mean/SD or authorise cohort normalisation. Do not represent the user-selected moderation as a university requirement or as verified institutional approval.
 
 Sources: the repository Case Study rubric; supplied Level 5 descriptors; calibrated Stage 1 workbook; and the user's agreed independent-marking, overall moderation and whole-number reporting instructions. The uploaded Level 5 document is the source used for this calibration, not a claim about subsequently revised institutional policy.
