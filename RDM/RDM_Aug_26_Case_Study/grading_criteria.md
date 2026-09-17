@@ -223,6 +223,6 @@ Evaluate whether sources are compared, evaluated and integrated into the argumen
 
 Do not penalise a student simply because most references concern the chosen content topic. The substantive topic requires an appropriate evidence base. The issue is whether the submission also demonstrates sufficient engagement with the critical-thinking, argumentation and persuasion literature used to construct the assignment.
 
-## Later stages: percentage grading and student feedback
+## Later stages: conversion and student feedback
 
-The 0 / 0.5 / 1 instructions above govern Stage 1 only. Once that calibration is complete, follow [GRADING_METHOD_Independent_Subcriteria.md](GRADING_METHOD_Independent_Subcriteria.md) for independent percentage grading, assignment-specific cohort moderation and whole-number reporting. Use [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md) for student-facing narrative feedback, with [this worked example](FEEDBACK_EXAMPLE_Participant_555059.md) as a format reference. Keep subcriterion marks internal and report only main criterion grades and the moderated overall in feedback.
+The 0 / 0.5 / 1 instructions above govern Stage 1. After cross-cohort calibration, follow [the version 2 grading method](GRADING_METHOD_Independent_Subcriteria.md): normalise raw criterion totals, apply university weights, derive the common cohort conversion and apply it to every criterion, then calculate the weighted processed overall and mean-preserving whole-number rounding. Do not introduce independent percentage judgements or a separate overall-only uplift. Use [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md) for narrative feedback. Existing version 1 percentage outputs and the old example are historical until regenerated.

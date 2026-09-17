@@ -1,139 +1,199 @@
-# Independent subcriterion grading with cohort moderation and whole-number reporting
+# Grading from calibrated competence scores
 
-Version 1.3 | 17 September 2026
+Version 2.0 | 17 September 2026
 
-## Purpose and scope
+## Status and scope
 
-Assess the quality demonstrated on each subcriterion independently, then apply the assessment's declared weights. Preserve the resulting evidence-based marks. After independent marking, apply the agreed cohort standardisation to the overall marks and report mean-preserving whole-number moderated grades. Retain the independently assessed marks as the evidence record.
+This is the agreed replacement for versions 1.x. Start from the calibrated 0 / 0.5 / 1 subcriterion matrix. Do not introduce an intermediate set of independently judged percentage marks or a separate uplift applied only to the overall.
 
-This method can be adapted to other modules by replacing the learning outcomes, assignment-specific subcriteria, level descriptors and weights. It does not assume that subcriteria, criteria or overall marks follow a normal distribution.
+The sequence is: assess competences independently → calibrate across the cohort → calculate normalised criterion totals → apply university weights → calculate the cohort distribution → derive one common conversion → convert each criterion → calculate the weighted overall → round for reporting.
 
-## 1. Establish the assessment specification
+This method is reusable across assignments. Its statistical conversion is a chosen cohort calibration procedure, not a rule prescribed by the supplied university rubric. The rubric specifies assessment expectations and weights. Do not describe the target mean or SD as a university requirement.
 
-Before marking, record the assignment, academic level, assessment-specific rubric, generic level descriptors, criterion weights, subcriterion weights within criteria, word-limit rules and any authorised penalties or grade ceilings. Fix these before inspecting the resulting grade distribution.
+**Migration status:** the existing `RDM_Subcriterion_Percentage_Grades.xlsx`, its CSV and the earlier feedback example were produced under version 1.x. They are historical outputs and must not be used as version 2 results until regenerated. This documentation revision does not itself recalculate those files. The calibrated Stage 1 matrix remains the starting source.
 
-Use institutional descriptors for academic quality and the assignment rubric for what must be demonstrated. Assessment-specific genre requirements take precedence over an inappropriate generic genre assumption: an assigned public-facing blog should not be penalised simply for being a blog.
+## 1. Fix the assignment configuration
 
-For the current RDM Case Study, use `grading_criteria.md` and the supplied *University of Essex Online – Undergraduate Grading Criteria NQF Level 5*, Version 1, August 2021. The CLQ grading method concerns a different assignment and is not imported. The supplied Level 5 guidance explicitly states that use of an older APA edition alone should not attract a deduction. Assess substantive citation accuracy and consistency; do not treat unobservable typography in normalised text as a student error.
+Record:
+- Assignment, academic level, rubric and source versions.
+- Exact participant IDs and the complete eligible cohort.
+- Criterion names, subcriteria, number of subcriteria per criterion, and criterion weights.
+- Within-criterion weights if unequal weighting is explicitly required; otherwise use equal weights.
+- Target class mean M, target population SD S if specified, and conversion mode.
+- Whole-number reporting and tie rules.
+- Any applicable institutional caps or penalties, which require an explicitly documented treatment.
 
-## 2. Retain the competence record
+The reference grade means the **target cohort mean**, not a minimum grade or a reference student's mark. Do not hard-code 65 or SD 10 for other assignments.
 
-Stage 1 records 0 = not demonstrated, 0.5 = partially demonstrated and 1 = fully demonstrated for each subcriterion. Preserve the original calibrated record and its source version.
+Current RDM configuration: M = 65, S = 10, mean-and-SD conversion, 17 participants, equal subcriterion weights within each criterion. No additional caps or penalties are applied. Preserve the assignment-specific critical-thinking focus.
 
-These codes do not map directly to 0%, 50% and 100%. They combine evidence about presence, adequacy, accuracy and application, but do not provide enough resolution for percentage grading. For example, a reading-range code of 0 can mean four relevant sources rather than no reading; a reasoning code of 0 can mean no account of inference or an explicitly incorrect account. Those situations require different quality judgements.
+## 2. Score and calibrate subcriteria
 
-Do not silently redefine the Stage 1 codes as mere coverage. If rereading reveals a substantive coding error, flag a proposed correction separately and preserve the original record.
+For student i, criterion c and subcriterion j, record x_icj as:
+- 1: fully demonstrated through adequate understanding or application.
+- 0.5: partially demonstrated.
+- 0: not demonstrated.
 
-## 3. Assess each subcriterion independently
+Naming a concept does not establish competent application. Retain source-specific evidence and reasons for each judgement. These scores are rubric-based assessments, not judgement-free objective measurements.
 
-Read the relevant evidence in the whole assignment, including Methods and references where appropriate. Assign a percentage mark before applying any weighting. A subcriterion does not receive a higher or lower mark because it carries a larger or smaller weight.
+Score all students independently before inspecting the overall grade distribution. Then compare students receiving different scores on each subcriterion and check consistency. Correct evidenced scoring errors, retain a change log, and freeze the calibrated matrix before conversion. Do not alter scores merely to obtain a preferred grade distribution.
 
-Use five-point increments for provisional subcriterion marks. Apply the relevant Level 5 descriptor to that particular competence. The following condensed anchors guide, rather than replace, the supplied descriptors:
+For RDM, assess meta-epistemic reasoning: evidence quality, inference, assumptions, alternative explanations, uncertainty, generalisability, counterarguments and bias/fallacy control. Distinguish topic balance from critical analysis, citation from evidence evaluation, naming Toulmin from applying it, illustrative anecdotes from anecdotal proof, and reasoning type from certainty. Check actual use of the designated Halpern and Dunn core text.
 
-| Mark region | Quality anchor |
-| --- | --- |
-| 0 | No assessable evidence for the specified competence. Distinguish absence from a flawed attempt. |
-| 5–25 | Very limited evidence or serious misunderstanding; select a mark reflecting the extent of relevant material. |
-| 30–35 | Weak, fragmentary or largely descriptive treatment; major errors or limited evaluation/application. |
-| 40–45 | Basic relevant understanding or application, with significant omissions or inconsistent reasoning. |
-| 50–55 | Adequate, reasonably accurate work; some evaluation/application, but limited depth or completeness. |
-| 60–65 | Sound, competent and developed work, with appropriate evidence and awareness of relevant limits. |
-| 70–75 | Strong, detailed and well-integrated work, with convincing evaluation/application and some independent thinking. |
-| 80–85 | Exceptional performance on the specified competence: precise, developed, independently reasoned and attentive to the limits of the evidence. |
-| 90–100 | Reserve for unusually outstanding evidence fully supporting this judgement. |
+## 3. Calculate criterion totals and distributions
 
-Do not impose an automatic percentage ceiling solely from a Stage 1 code. A partial code caused by a minor formal omission differs from one caused by conceptual weakness. Explain any mark/code combination that might otherwise appear inconsistent. Similarly, a fully demonstrated competence is not automatically exceptional work.
+With n_c equally weighted subcriteria:
 
-Maintain an audit rationale for each criterion's constituent marks, including specific evidence, omissions and limitations. Record material uncertainty, such as missing original formatting or sources that have not been verified. Do not infer misconduct from stylistic similarity, citation anomalies or AI-related wording.
+`T_ic = sum_j(x_icj)`
 
-## 4. Cross-cohort moderation
+`C_ic = T_ic / n_c`
 
-Compare papers addressing the same subcriterion. Use examples of basic, adequate, sound and strong performance to check that marks reflect comparable evidence. Students with the same Stage 1 code may receive different marks when the work demonstrates different quality; do not introduce differences merely to break ties.
+T_ic is the raw criterion total. C_ic is the criterion proportion on a common 0–1 scale. Normalisation is essential: a criterion with seven subcriteria must not gain extra weight over one with five.
 
-For this critical-thinking assignment, pay particular attention to evaluating evidence rather than counting citations, inferential strength rather than topic balance, actual framework application rather than naming it, and illustrative anecdotes rather than anecdotes presented as proof. Distinguish reasoning type from the strength or certainty of its conclusion.
+If authorised within-criterion weights a_cj are unequal, sum them to 1 and use `C_ic = sum_j(a_cj × x_icj)`; retain the unweighted raw total separately.
 
-Review apparent contradictions and unusual scores against the source. Revise marks only where a substantive rationale supports the revision. Do not use the desired overall distribution as the reason for a revision.
+For each criterion report N, raw-total distribution, minimum, maximum, mean and population SD, plus mean and population SD of C_ic. Retain the individual subcriterion distributions as an audit.
 
-## 5. Apply the weights after marking
+Do not yet interpret a competence proportion as an awarded percentage grade.
 
-Let M_ij be student i's percentage mark for subcriterion j. Let a_cj be the within-criterion weight, summing to 1 within criterion c. Let W_c be the criterion weight, summing to 1 across criteria.
+## 4. Calculate the university-weighted competence score
 
-Criterion mark: C_ic = sum_j(a_cj × M_ij).
+Let W_c be the university/assignment criterion weights expressed as decimals, summing to 1.
 
-Overall assessed mark: G_i = sum_c(W_c × C_ic).
+`R_i = sum_c(W_c × C_ic)`
 
-Equal within-criterion weights give C_ic = mean of its subcriterion marks. Do not round constituent or criterion values before aggregation. Display student marks as whole numbers, rounding criterion averages and the assessed overall to the nearest integer for presentation only (halves upwards). Retain full precision internally and use it for aggregation and moderation. Distribution statistics retain decimals. A five-point input scale does not require five-point criterion means or overall totals.
+Apply the weights to the normalised criterion scores, not to unnormalised totals. Do not simply add all subcriterion points or average criteria equally unless the assessment actually specifies equal criterion weights.
 
-Only apply institutional penalties or overall caps when they have been explicitly established for this assessment. Record them separately from subcriterion marks and avoid double-counting. Do not borrow caps from the CLQ assignment. This implementation applies no additional overall caps or penalties.
+This produces one weighted competence score per student on a 0–1 scale.
 
-## 6. Describe the observed cohort distribution
+## 5. Calculate the complete cohort distribution
 
-Report N, mean, population SD, minimum and maximum for each subcriterion, each criterion and the assessed overall mark. Retain different means and variances across subcriteria. Do not create a spread where the evidence supports equal marks.
+For N students:
 
-The overall variance depends on covariance as well as individual variability: Var(G) = sum_j(w_j² Var(M_j)) + 2 sum_(j<k)(w_j w_k Cov(M_j,M_k)), where w_j = W_c × a_cj.
+`mu_R = sum_i(R_i) / N`
 
-## 7. Overall moderation to the agreed cohort target
+`sigma_R = sqrt(sum_i((R_i − mu_R)^2) / N)`
 
-Record the assignment-specific reference mean (mu_target) and moderation mode in the grade-sheet configuration. The reference mean is the target class mean, not a benchmark student's grade. The present cohort uses 65; another assignment may use a different agreed value. Do not infer or reuse a target without an assignment-specific instruction.
+Use population SD, denominator N. Include exactly the same students throughout scoring, conversion and rounding. Use full precision.
 
-If a target population SD (sigma_target) is also agreed, use mean-and-SD standardisation:
+## 6. Derive one common conversion
 
-G_standardised_i = mu_target + sigma_target × (G_i − cohort_mean(G)) / population_SD(G).
+For a target mean M and positive target SD S:
 
-If only a target mean is agreed for another assignment, use a mean shift instead: G_standardised_i = G_i + mu_target − cohort_mean(G). This preserves the original SD before rounding. Do not silently impose SD 10 on an assignment that specifies only a mean. The zero-SD restriction below applies to mean-and-SD standardisation; a mean shift remains defined for a constant cohort.
+`b = S / sigma_R`
 
-For this cohort, the agreed mode is mean-and-SD standardisation, with mu_target = 65 and sigma_target = 10. This transformation preserves ordering, ties and relative differences. It gives exactly those moments before rounding, provided the original overall SD is positive. It does not make a non-normal distribution normal.
+`a = M − b × mu_R`
 
-The user has adopted this transformation for the moderated overall grades. Retain the full-precision standardised result alongside the independently assessed overall, then calculate the whole-number **moderated overall** using the rule below. The moderated overall is the adjusted grade for inspection. It does not equal the weighted sum of unchanged subcriterion marks; the difference is an explicit overall moderation adjustment. Do not change evidence-based subcriterion marks to reconstruct it.
+Define the common affine conversion:
 
-If the original SD is zero, mean-and-SD standardisation is undefined and should remain unavailable. If transformed values lie outside 0–100, flag them; do not silently clip them, because clipping changes the moments. Use the same students in the mean, SD and transformation. Use the population denominator N consistently.
+`f(q) = a + b × q = M + b × (q − mu_R)`
 
-Rank-normal transformation is not part of this method. Neither subcriteria nor the overall distribution are forced to be normal. If a future assessment adopts rank-normalisation, document it as a distinct norm-referenced procedure.
+The parameters are derived once from the **weighted overall competence distribution**, not separately from each criterion's distribution. Do not centre each criterion on its own mean or impose the same SD on every criterion.
 
-## 8. Mean-preserving whole-number rounding
+If sigma_R = 0, a positive target SD cannot be obtained by this conversion without inventing differences. Flag the issue rather than breaking ties artificially.
 
-Subcriterion percentage marks are already integers in five-point steps. Display criterion averages and the independently assessed overall as whole numbers, while retaining the unrounded values in the calculation. Stage 1 codes remain 0, 0.5 and 1 because they are competence codes, not percentage marks.
+If another assignment specifies only a target mean, use mean-only conversion:
+`b = 100`, `a = M − 100 × mu_R`.
+This retains the original spread expressed in percentage points. Do not silently impose SD 10.
 
-For the final moderated overall, ordinary independent rounding can move the class mean away from its target. Use the largest-remainder procedure instead:
+## 7. Convert each criterion, then calculate the overall
 
-1. Let S_i be each full-precision standardised overall. Set F_i = floor(S_i) and r_i = S_i − F_i.
-2. Set the required class total T = N × target mean. This must be an integer for an exact whole-number solution.
-3. Calculate K = T − sum(F_i).
-4. Round up the K scores with the largest fractional remainders; leave the others rounded down. Thus H_i = F_i + 1 for those K students and H_i = F_i otherwise.
-5. Check sum(H_i) = T, mean(H_i) = target mean, all H_i are integers within 0–100, and ordering is not reversed.
+Apply exactly the same a and b to every criterion:
 
-This minimises total squared rounding error among floor/ceiling allocations with the required total. A few scores above .5 can round down, or scores below .5 can round up, to preserve the mean. Resolve equal remainders in ascending participant-ID order for reproducibility. If this would split identical underlying overall scores, flag the tie for manual review: equal treatment of ties and an exact integer total can conflict. If the target total is non-integer, the transformed scores are outside bounds, or mean-and-SD standardisation is requested with original SD zero, do not silently manufacture a solution; review the target or constraints.
+`P_ic = a + b × C_ic`
 
-For this cohort N = 17 and target mean = 65, so the required total is **1,105**. Ordinary nearest-integer rounding gives 1,107. Largest-remainder rounding instead gives exactly 1,105. Participant_555077_assignsubmission_file and Participant_555078_assignsubmission_file round down rather than up compared with ordinary rounding. No tied underlying scores require adjudication.
+P_ic is the converted criterion percentage. It is calculated before multiplying it by the criterion weight. The weights determine its contribution, not an extra per-criterion multiplier inside the conversion. Changing weights does, however, change the overall cohort distribution and therefore requires recalculating a and b.
 
-The pre-rounding population SD is exactly 10. Integer rounding will generally change it slightly, and the observed post-rounding SD must be reported. Exact mean 65 takes priority over exact SD 10 at the final integer stage. No normal distribution is imposed.
+Calculate the processed overall:
 
-## 9. Deliverables and checks
+`G_i = sum_c(W_c × P_ic)`
 
-Provide one row per participant with all subcriterion percentage marks, criterion means, assessed weighted overall mark, standardised overall before final rounding, and whole-number moderated overall. Retain the unrounded calculations and rounding remainders in the workbook for audit. Preserve exact participant IDs. Include the competence codes, mark rationales, source identifiers and moderation flags as supporting material.
+Because the weights sum to 1:
 
-Check participant completeness, allowed mark increments, weights summing to 1, arithmetic, population-SD calculations, ties, unrounded reconciliation, and the separation of assessed and moderated marks, and the exact integer class total. Record any final rounding convention explicitly. Treat outputs as provisional for inspection until the identified moderation questions are resolved; do not publish grades or student feedback automatically.
+`G_i = sum_c(W_c × (a + b × C_ic)) = a + b × R_i`.
 
-## 10. Generate student-facing feedback from the final grade sheet
+Therefore:
+- The converted criterion grades reconcile exactly with the processed overall before rounding.
+- The complete cohort's unrounded overall mean is M.
+- Its unrounded population SD is S in mean-and-SD mode.
+- A positive slope preserves overall ordering and ties.
+- Each criterion retains its own mean and spread: mean(P_c) = a + b × mean(C_c), and SD(P_c) = b × SD(C_c).
+- Distribution shape is preserved. No criterion or overall distribution is forced to be normal.
 
-Follow [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md) for each student. Use the current exact participant row and evidence audit: report only main criterion titles and whole-number grades, with one connected paragraph under each. Keep subcriterion codes, titles and marks internal. Start with exactly three Strengths and three Areas for Improvement bullets. End with the moderated overall grade and an 80–120 word summary. Keep the complete response within 600–800 words.
+Do not add a second moderation adjustment to G_i. Do not reuse the previous independently judged percentage marks.
 
-The independent criterion grades and moderated overall must be copied from the final grade sheet. Explain the overall adjustment briefly; do not alter the criterion narrative to rationalise a statistical uplift. If the target mean, SD, weights, cohort membership or assessed marks change, recalculate the full cohort and its integer allocation first, then regenerate affected feedback. Do not calculate from rounded CSV summaries.
+Keep subcriterion scores in their original 0 / 0.5 / 1 form. The required percentage outputs are criterion and overall grades. Applying the affine formula to individual codes would produce converted index values, including a potentially non-zero value for code 0; do not mislabel these as newly demonstrated competence or independent quality marks.
 
-Use [the worked example](FEEDBACK_EXAMPLE_Participant_555059.md) as a format and tone reference only. It is based on grade-sheet commit 3eb01ffef991465d2fdf3c682ca8fac7eee00c88, with criterion grades 59, 73, 73, 73 and 72, and moderated overall 75. Other students require their own evidence and grades.
+## 8. Check the bounds and interpretation
 
-## Current RDM Case Study configuration
+Check every converted criterion and overall against 0–100 before reporting. A target mean/SD can produce out-of-range values in another cohort. Do not clip silently: clipping can break exact reconciliation and the target moments. Review the agreed parameters or document a different constrained method if bounds fail.
 
-| Criterion | Criterion weight | Number of subcriteria | Weight of each subcriterion in overall mark |
-| --- | ---: | ---: | ---: |
-| C1 Knowledge and Understanding | 25% | 5 | 5% |
-| C2 Critical Analysis and Evaluation | 25% | 6 | 25% / 6 |
-| C3 Application of Theory to Persuasive Blog Writing | 25% | 5 | 5% |
-| C4 Presentation and Academic Conventions | 10% | 7 | 10% / 7 |
-| C5 Reading and Referencing | 15% | 6 | 2.5% |
+The conversion is relative to this cohort. A criterion score of 1 does not automatically become 100%, and the conversion cannot recover distinctions lost in the three-level scoring system. Equal criterion proportions receive equal converted grades. A high converted grade does not alone establish every qualitative feature of a university descriptor.
 
-All subcriteria within each criterion are equally weighted. Each percentage mark is assessed independently of these weights. Equal within-criterion weighting is the declared implementation of the Case Study subcriteria; it is not explicitly prescribed by the supplied university document.
+Do not claim that the target mean and SD uniquely establish educationally correct grades. The affine rule and targets are explicit calibration choices. Any institutional caps, penalties or alternative transformation must be reconciled separately with the target constraints; they are not part of this implementation.
 
-For the exact mapping to the supplied university rubric, source pages and a worked weighted calculation, see [University rubric and weights in the feedback instructions](FEEDBACK_INSTRUCTIONS.md#university-rubric-weights-and-the-distinction-from-cohort-moderation). For Participant_555059_assignsubmission_file the university-weighted independent mark is 69.369047619... (69% rounded); 75% is the separately moderated overall. The supplied university rubric does not establish a target mean/SD or authorise cohort normalisation. Do not represent the user-selected moderation as a university requirement or as verified institutional approval.
+## 9. Round only at the reporting stage
 
-Sources: the repository Case Study rubric; supplied Level 5 descriptors; calibrated Stage 1 workbook; and the user's agreed independent-marking, overall moderation and whole-number reporting instructions. The uploaded Level 5 document is the source used for this calibration, not a claim about subsequently revised institutional policy.
+Retain full precision for all criterion averages, conversion parameters and weighted calculations. Display criterion percentages as whole numbers using nearest-integer rounding, halves upwards. The stored criterion values remain unrounded.
+
+For final whole-number overall grades H_i with exact target mean M, use mean-preserving largest-remainder rounding:
+1. Set F_i = floor(G_i) and r_i = G_i − F_i.
+2. Calculate target total T = N × M; it must be an integer for an exact integer solution.
+3. Calculate K = T − sum_i(F_i).
+4. Round up the K largest remainders; leave the others rounded down.
+5. Check sum(H_i) = T and mean(H_i) = M.
+
+This is cohort-wide rounding, not ordinary independent rounding and not a second substantive uplift. It minimises squared rounding error among floor/ceiling allocations meeting the total. Population SD may change slightly; report its actual post-rounding value.
+
+For equal remainders use ascending exact participant ID for reproducibility, but flag any allocation that would split identical underlying overall grades. Equal treatment of ties and an exact integer total can conflict. Do not claim both requirements are satisfied unless checked. If T is non-integer, seek an explicit revised target or rounding rule rather than silently approximating it.
+
+**Rounding reconciliation:** exact weighted reconciliation holds for the unrounded converted criteria and unrounded G_i. It is not guaranteed for the displayed integer criterion grades and H_i. Do not promise exact equality between rounded displayed components and the final integer total. Achieving that additional constraint would require a separately specified joint rounding procedure; it is not the default method.
+
+## 10. Current RDM university rubric and weights
+
+Source: supplied **University of Essex Online – Undergraduate Grading Criteria NQF Level 5**, **Version 1 – August 2021**, file `L5 Assignment Grading Criteria (1)(1).pdf`. Its introduction notes that weights can vary between assessments.
+
+| Assignment criterion | University category | Weight | Subcriteria | Source page |
+| --- | --- | ---: | ---: | --- |
+| C1 Knowledge and Understanding | Knowledge and understanding of the subject area / conceptual issues | 25% | 5 | 1 |
+| C2 Critical Analysis and Evaluation | Critical Analysis and Evaluation | 25% | 6 | 2 |
+| C3 Application of Theory to Persuasive Blog Writing | Application of theory to practice and/or real-world example | 25% | 5 | 1–2 |
+| C4 Presentation and Academic Conventions | Presentation Style and Structure | 10% | 7 | 3–4 |
+| C5 Reading and Referencing | Reading and Referencing | 15% | 6 | 3 |
+
+Match categories by meaning, not their printed order. These weights sum to 100%. Equal within-criterion weighting is the declared implementation, not explicitly required by that university document. The university rubric does not prescribe mean 65 or SD 10. Do not import the different CLQ assignment's weights, ceilings or stepped overall-mark rules.
+
+## 11. Worked conversion from the original RDM matrix
+
+For Participant_555059_assignsubmission_file:
+
+| Criterion | Raw total | Maximum | C_ic | Converted P_ic |
+| --- | ---: | ---: | ---: | ---: |
+| C1 | 4 | 5 | 0.8 | 66.984303 |
+| C2 | 6 | 6 | 1.0 | 81.116895 |
+| C3 | 5 | 5 | 1.0 | 81.116895 |
+| C4 | 7 | 7 | 1.0 | 81.116895 |
+| C5 | 6 | 6 | 1.0 | 81.116895 |
+
+For all 17 students in the original calibrated matrix:
+- mu_R = 0.7719187675070028.
+- sigma_R = 0.14151685628279917.
+- M = 65 and S = 10.
+- b = 70.66296031913382.
+- a = M − b × mu_R (calculate at full precision).
+
+For this student R_i = 0.95 and G_i = **77.5837470652351**. The university-weighted sum of the five converted criterion grades gives this same result. Four criterion grades are identical because all four original proportions equal 1.
+
+The complete unrounded cohort has mean 65 and population SD 10. Converted criterion values in this cohort range from approximately 22.23 to 81.12, within bounds. Final whole-number overall grades must still be allocated using the full-cohort rounding procedure, not inferred from this one-student example. Recalculate these statistics from the current source matrix if any scores or cohort membership change.
+
+## 12. Deliverables, audit and feedback
+
+The grade sheet must include exact participant IDs, all original subcriterion codes, criterion raw totals, normalised criterion scores, converted criterion percentages, weighted raw competence R_i, full-precision processed overall G_i, and final reported integer H_i. Retain weights, target configuration, a, b, cohort statistics and rounding remainders visibly for audit.
+
+Verify completeness, allowed input codes, denominators, weight sums, source versions, bounds, ordering/ties, full-precision weighted reconciliation, target moments and final integer total. Never derive new conversions from already rounded outputs.
+
+Use [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md). Feedback remains 600–800 words, exactly three Strengths and three Areas for Improvement bullets, one narrative paragraph beneath each main criterion title and whole-number converted grade, and an 80–120 word overall summary with the final processed grade. Hide subcriterion labels and numerical codes, while explaining their substantive implications.
+
+Changing M, S, weights, cohort membership or assessed codes requires recalculating the entire conversion and rounding allocation. Update all affected criterion and overall grades in feedback. Preserve evidence-specific judgements; do not invent stronger work because a converted percentage increases.
+
+Retain the prior grade sheet and example as historical records until replaced with verified version 2 outputs. The original Stage 1 competence matrix is not superseded by this method.

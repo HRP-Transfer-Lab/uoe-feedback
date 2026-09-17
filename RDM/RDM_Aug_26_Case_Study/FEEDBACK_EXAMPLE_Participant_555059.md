@@ -1,3 +1,5 @@
+> **Historical format example — version 1 grades superseded.** This file preserves the earlier narrative format. Its numerical grades and separate-overall-moderation explanation are not valid under the agreed version 2 method. Use the regenerated version 2 grade sheet before preparing current feedback. See [the current method](GRADING_METHOD_Independent_Subcriteria.md).
+
 **Participant_555059_assignsubmission_file**
 
 ### Strengths
