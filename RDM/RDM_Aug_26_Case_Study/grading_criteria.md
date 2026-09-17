@@ -222,3 +222,7 @@ Evaluate whether the student uses at least one relevant systematic review, meta-
 Evaluate whether sources are compared, evaluated and integrated into the argument rather than simply presented one after another or used decoratively. The relevance, strength or limitations of important evidence should be explained.
 
 Do not penalise a student simply because most references concern the chosen content topic. The substantive topic requires an appropriate evidence base. The issue is whether the submission also demonstrates sufficient engagement with the critical-thinking, argumentation and persuasion literature used to construct the assignment.
+
+## Later stages: percentage grading and student feedback
+
+The 0 / 0.5 / 1 instructions above govern Stage 1 only. Once that calibration is complete, follow [GRADING_METHOD_Independent_Subcriteria.md](GRADING_METHOD_Independent_Subcriteria.md) for independent percentage grading, assignment-specific cohort moderation and whole-number reporting. Use [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md) for student-facing narrative feedback, with [this worked example](FEEDBACK_EXAMPLE_Participant_555059.md) as a format reference. Keep subcriterion marks internal and report only main criterion grades and the moderated overall in feedback.

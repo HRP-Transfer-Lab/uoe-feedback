@@ -1,6 +1,6 @@
 # Independent subcriterion grading with cohort moderation and whole-number reporting
 
-Version 1.1 | 17 September 2026
+Version 1.2 | 17 September 2026
 
 ## Purpose and scope
 
@@ -74,15 +74,19 @@ The overall variance depends on covariance as well as individual variability: Va
 
 ## 7. Overall moderation to the agreed cohort target
 
-For an explicitly chosen target mean mu_target and population SD sigma_target, calculate:
+Record the assignment-specific reference mean (mu_target) and moderation mode in the grade-sheet configuration. The reference mean is the target class mean, not a benchmark student's grade. The present cohort uses 65; another assignment may use a different agreed value. Do not infer or reuse a target without an assignment-specific instruction.
+
+If a target population SD (sigma_target) is also agreed, use mean-and-SD standardisation:
 
 G_standardised_i = mu_target + sigma_target × (G_i − cohort_mean(G)) / population_SD(G).
 
-For this cohort, mu_target = 65 and sigma_target = 10. This transformation preserves ordering, ties and relative differences. It gives exactly those moments before rounding, provided the original overall SD is positive. It does not make a non-normal distribution normal.
+If only a target mean is agreed for another assignment, use a mean shift instead: G_standardised_i = G_i + mu_target − cohort_mean(G). This preserves the original SD before rounding. Do not silently impose SD 10 on an assignment that specifies only a mean. The zero-SD restriction below applies to mean-and-SD standardisation; a mean shift remains defined for a constant cohort.
+
+For this cohort, the agreed mode is mean-and-SD standardisation, with mu_target = 65 and sigma_target = 10. This transformation preserves ordering, ties and relative differences. It gives exactly those moments before rounding, provided the original overall SD is positive. It does not make a non-normal distribution normal.
 
 The user has adopted this transformation for the moderated overall grades. Retain the full-precision standardised result alongside the independently assessed overall, then calculate the whole-number **moderated overall** using the rule below. The moderated overall is the adjusted grade for inspection. It does not equal the weighted sum of unchanged subcriterion marks; the difference is an explicit overall moderation adjustment. Do not change evidence-based subcriterion marks to reconstruct it.
 
-If the original SD is zero, standardisation is undefined and should remain unavailable. If transformed values lie outside 0–100, flag them; do not silently clip them, because clipping changes the moments. Use the same students in the mean, SD and transformation. Use the population denominator N consistently.
+If the original SD is zero, mean-and-SD standardisation is undefined and should remain unavailable. If transformed values lie outside 0–100, flag them; do not silently clip them, because clipping changes the moments. Use the same students in the mean, SD and transformation. Use the population denominator N consistently.
 
 Rank-normal transformation is not part of this method. Neither subcriteria nor the overall distribution are forced to be normal. If a future assessment adopts rank-normalisation, document it as a distinct norm-referenced procedure.
 
@@ -98,7 +102,7 @@ For the final moderated overall, ordinary independent rounding can move the clas
 4. Round up the K scores with the largest fractional remainders; leave the others rounded down. Thus H_i = F_i + 1 for those K students and H_i = F_i otherwise.
 5. Check sum(H_i) = T, mean(H_i) = target mean, all H_i are integers within 0–100, and ordering is not reversed.
 
-This minimises total squared rounding error among floor/ceiling allocations with the required total. A few scores above .5 can round down, or scores below .5 can round up, to preserve the mean. Resolve equal remainders in ascending participant-ID order for reproducibility. If this would split identical underlying overall scores, flag the tie for manual review: equal treatment of ties and an exact integer total can conflict. If the target total is non-integer, the transformed scores are outside bounds, or the original SD is zero, do not silently manufacture a solution; review the target or constraints.
+This minimises total squared rounding error among floor/ceiling allocations with the required total. A few scores above .5 can round down, or scores below .5 can round up, to preserve the mean. Resolve equal remainders in ascending participant-ID order for reproducibility. If this would split identical underlying overall scores, flag the tie for manual review: equal treatment of ties and an exact integer total can conflict. If the target total is non-integer, the transformed scores are outside bounds, or mean-and-SD standardisation is requested with original SD zero, do not silently manufacture a solution; review the target or constraints.
 
 For this cohort N = 17 and target mean = 65, so the required total is **1,105**. Ordinary nearest-integer rounding gives 1,107. Largest-remainder rounding instead gives exactly 1,105. Participant_555077_assignsubmission_file and Participant_555078_assignsubmission_file round down rather than up compared with ordinary rounding. No tied underlying scores require adjudication.
 
@@ -109,6 +113,14 @@ The pre-rounding population SD is exactly 10. Integer rounding will generally ch
 Provide one row per participant with all subcriterion percentage marks, criterion means, assessed weighted overall mark, standardised overall before final rounding, and whole-number moderated overall. Retain the unrounded calculations and rounding remainders in the workbook for audit. Preserve exact participant IDs. Include the competence codes, mark rationales, source identifiers and moderation flags as supporting material.
 
 Check participant completeness, allowed mark increments, weights summing to 1, arithmetic, population-SD calculations, ties, unrounded reconciliation, and the separation of assessed and moderated marks, and the exact integer class total. Record any final rounding convention explicitly. Treat outputs as provisional for inspection until the identified moderation questions are resolved; do not publish grades or student feedback automatically.
+
+## 10. Generate student-facing feedback from the final grade sheet
+
+Follow [FEEDBACK_INSTRUCTIONS.md](FEEDBACK_INSTRUCTIONS.md) for each student. Use the current exact participant row and evidence audit: report only main criterion titles and whole-number grades, with one connected paragraph under each. Keep subcriterion codes, titles and marks internal. Start with exactly three Strengths and three Areas for Improvement bullets. End with the moderated overall grade and an 80–120 word summary. Keep the complete response within 600–800 words.
+
+The independent criterion grades and moderated overall must be copied from the final grade sheet. Explain the overall adjustment briefly; do not alter the criterion narrative to rationalise a statistical uplift. If the target mean, SD, weights, cohort membership or assessed marks change, recalculate the full cohort and its integer allocation first, then regenerate affected feedback. Do not calculate from rounded CSV summaries.
+
+Use [the worked example](FEEDBACK_EXAMPLE_Participant_555059.md) as a format and tone reference only. It is based on grade-sheet commit 3eb01ffef991465d2fdf3c682ca8fac7eee00c88, with criterion grades 59, 73, 73, 73 and 72, and moderated overall 75. Other students require their own evidence and grades.
 
 ## Current RDM Case Study configuration
 
