@@ -171,11 +171,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add PNS/Proposal_July_2026/_grading_extracts
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git pull --rebase origin main
             git commit -m "Extract PNS proposal text for grading"
             git push
           fi
