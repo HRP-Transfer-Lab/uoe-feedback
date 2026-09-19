@@ -1,0 +1,181 @@
+name: Extract PNS proposal text for grading
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/extract-pns-proposals.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install extraction dependencies
+        run: python -m pip install --quiet python-docx pypdf
+
+      - name: Extract text and metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, json, zipfile
+          from docx import Document
+          from pypdf import PdfReader
+
+          root = Path("PNS/Proposal_July_2026")
+          out_root = root / "_grading_extracts"
+          out_root.mkdir(exist_ok=True)
+
+          def safe_name(s):
+              return re.sub(r'[^A-Za-z0-9._-]+','_',s).strip('_')
+
+          def docx_extract(path):
+              doc = Document(path)
+              blocks=[]
+              para_meta=[]
+              # paragraphs
+              for i,p in enumerate(doc.paragraphs):
+                  txt=p.text.strip()
+                  if txt:
+                      para_meta.append({
+                          "i": i,
+                          "style": p.style.name if p.style else "",
+                          "text": txt
+                      })
+              # tables
+              table_text=[]
+              for ti,t in enumerate(doc.tables):
+                  rows=[]
+                  for row in t.rows:
+                      vals=[c.text.strip().replace("\n"," / ") for c in row.cells]
+                      rows.append(" | ".join(vals))
+                  table_text.append((ti,rows))
+
+              # basic format metadata
+              sec=[]
+              for si,s in enumerate(doc.sections):
+                  sec.append({
+                      "section":si,
+                      "top_margin":str(s.top_margin),
+                      "bottom_margin":str(s.bottom_margin),
+                      "left_margin":str(s.left_margin),
+                      "right_margin":str(s.right_margin)
+                  })
+              # word app property
+              app_words=None
+              try:
+                  with zipfile.ZipFile(path) as z:
+                      app=z.read("docProps/app.xml").decode("utf-8",errors="ignore")
+                      m=re.search(r"<Words>(\d+)</Words>",app)
+                      if m: app_words=int(m.group(1))
+              except Exception:
+                  pass
+
+              # reference split estimate
+              all_text="\n".join(p["text"] for p in para_meta)
+              lines=all_text.splitlines()
+              ref_idx=None
+              for idx,line in enumerate(lines):
+                  if line.strip().lower() in {"references","reference"}:
+                      ref_idx=idx; break
+              main_text="\n".join(lines[:ref_idx]) if ref_idx is not None else all_text
+              # try exclude title/contents? still rough
+              words=re.findall(r"\b[\w’'-]+\b",main_text)
+              return {
+                  "type":"docx",
+                  "paragraphs":para_meta,
+                  "tables":table_text,
+                  "sections":sec,
+                  "app_words":app_words,
+                  "estimated_main_text_words":len(words),
+              }
+
+          def pdf_extract(path):
+              r=PdfReader(str(path))
+              pages=[]
+              for i,p in enumerate(r.pages):
+                  try: txt=p.extract_text() or ""
+                  except Exception as e: txt=f"[EXTRACTION ERROR: {e}]"
+                  pages.append(txt)
+              full="\n".join(pages)
+              lines=full.splitlines()
+              ref_idx=None
+              for idx,line in enumerate(lines):
+                  if line.strip().lower() in {"references","reference"}:
+                      ref_idx=idx; break
+              main="\n".join(lines[:ref_idx]) if ref_idx is not None else full
+              words=re.findall(r"\b[\w’'-]+\b",main)
+              return {
+                  "type":"pdf",
+                  "pages":pages,
+                  "estimated_main_text_words":len(words),
+                  "page_count":len(pages),
+              }
+
+          manifest=[]
+          for folder in sorted(root.iterdir()):
+              if not folder.is_dir() or not folder.name.endswith("_assignsubmission_file"):
+                  continue
+              sid_match=re.search(r"_(\d+)_assignsubmission_file$",folder.name)
+              sid=sid_match.group(1) if sid_match else safe_name(folder.name)
+              stu=folder.name.rsplit("_",2)[0]
+              parts=[]
+              meta={"participant_id":sid,"student":stu,"folder":folder.name,"files":[]}
+              for f in sorted(folder.iterdir()):
+                  if not f.is_file(): continue
+                  try:
+                      if f.suffix.lower()==".docx":
+                          d=docx_extract(f)
+                      elif f.suffix.lower()==".pdf":
+                          d=pdf_extract(f)
+                      else:
+                          continue
+                  except Exception as e:
+                      d={"type":f.suffix.lower(),"error":repr(e)}
+                  meta["files"].append({"name":f.name, **{k:v for k,v in d.items() if k not in {"paragraphs","tables","pages"}}})
+                  parts.append(f"# FILE: {f.name}\n")
+                  if d.get("type")=="docx":
+                      parts.append(f"Estimated main-text words: {d.get('estimated_main_text_words')}\n")
+                      parts.append(f"Word app property: {d.get('app_words')}\n")
+                      parts.append("## Paragraphs (style | text)\n")
+                      for p in d["paragraphs"]:
+                          parts.append(f"[{p['i']:04d}] [{p['style']}] {p['text']}\n")
+                      if d["tables"]:
+                          parts.append("\n## Tables\n")
+                          for ti,rows in d["tables"]:
+                              parts.append(f"### Table {ti+1}\n")
+                              for row in rows: parts.append(row+"\n")
+                  elif d.get("type")=="pdf":
+                      parts.append(f"Estimated main-text words: {d.get('estimated_main_text_words')}\n")
+                      parts.append(f"Page count: {d.get('page_count')}\n")
+                      for i,txt in enumerate(d["pages"],1):
+                          parts.append(f"\n## Page {i}\n{txt}\n")
+                  else:
+                      parts.append(f"Extraction error: {d.get('error')}\n")
+              out=(out_root/f"{sid}_{safe_name(stu)}.md")
+              out.write_text("\n".join(parts),encoding="utf-8")
+              manifest.append(meta)
+
+          (out_root/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
+          PY
+
+      - name: Commit extracts
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PNS/Proposal_July_2026/_grading_extracts
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git pull --rebase origin main
+            git commit -m "Extract PNS proposal text for grading"
+            git push
+          fi
