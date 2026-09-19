@@ -50,10 +50,8 @@ jobs:
                       with zf.open(member) as src, open(dest, "wb") as out:
                           shutil.copyfileobj(src, out)
 
-          # Copy extracted contents into the assignment directory, preserving archive structure.
           for src in staging.rglob("*"):
               rel = src.relative_to(staging)
-              # Skip common archive metadata.
               if "__MACOSX" in rel.parts or src.name == ".DS_Store":
                   continue
               dst = target / rel
@@ -78,3 +76,5 @@ jobs:
             git commit -m "Extract PNS July 2026 proposal submissions"
             git push
           fi
+
+# one-off extraction workflow
