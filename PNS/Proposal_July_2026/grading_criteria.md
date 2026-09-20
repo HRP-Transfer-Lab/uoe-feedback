@@ -1,6 +1,6 @@
 # PNS Research Proposal — Subcriterion Scoring Rubric
 
-Version 1.0 | 19 September 2026
+Version 1.1 | 20 September 2026
 
 ## 1. Purpose and assessment structure
 
@@ -90,9 +90,15 @@ An explicit null hypothesis is not required.
 **0:** A major measure is inappropriate, insufficiently described, or its validity for the intended construct is seriously doubtful.
 
 ## C2D — Participants and sampling
-**1:** Defines the target population, sampling/recruitment strategy and relevant inclusion/exclusion criteria and provides a reasonable justification for sample size or power.
-**0.5:** Population and recruitment are broadly clear but sample-size justification, eligibility, representativeness or recruitment feasibility is underdeveloped.
+**1:** Defines the target population, sampling/recruitment strategy and relevant inclusion/exclusion criteria and provides a reasonable justification for the proposed sample size.
+
+A formal power analysis is **optional, not required**. A defensible sample-size rationale may instead be based on comparable prior studies, previously reported effect sizes, established methodological guidance, precision considerations, or a clearly reasoned feasibility-based justification appropriate to an MSc proposal.
+
+**0.5:** Population and recruitment are broadly clear but sample-size justification, eligibility, representativeness or recruitment feasibility is underdeveloped. This includes cases where a sample size is asserted without showing the basis for it.
+
 **0:** Participant population is inadequately defined, recruitment is unrealistic, or no defensible basis for the proposed sample is evident.
+
+Do **not** lower this criterion merely because the student has not conducted a power analysis. Where the sample size is otherwise reasonably justified from prior research or another defensible basis, the absence of a formal power analysis is not a methodological deficit. A power analysis may be suggested as one possible way to strengthen or confirm the rationale, but must not be presented as compulsory.
 
 ## C2E — Data-analysis plan
 **1:** Correctly identifies predictors/independent variables, outcomes/dependent variables and relevant grouping/moderating variables and selects statistical analyses that directly test the hypotheses; important assumptions or planned comparisons are addressed where appropriate.
