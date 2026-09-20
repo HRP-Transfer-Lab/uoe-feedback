@@ -1,6 +1,6 @@
 # Student feedback instructions — PNS Research Proposal Report
 
-Version 1.0 | 19 September 2026
+Version 1.1 | 20 September 2026
 
 Use this file together with:
 - `grading_criteria.md`
@@ -93,7 +93,8 @@ In this assignment, feedback should pay particular attention to:
 - construct–measure alignment and the distinction between direct and indirect physiological indices;
 - design–question and hypothesis–analysis alignment;
 - causal claims versus correlational or observational evidence;
-- statistical assumptions, interactions/moderation and power where relevant;
+- statistical assumptions and interactions/moderation where relevant;
+- sample-size justification, recognising that a formal power analysis is optional rather than compulsory;
 - feasibility for an online MSc project, including realistic access to equipment, assays, recruitment and technical expertise;
 - study-specific ethics rather than generic boilerplate;
 - sensitive populations, health interpretation, biological samples, physiological recording and neuroethical issues where relevant;
@@ -101,6 +102,23 @@ In this assignment, feedback should pay particular attention to:
 - appropriate use of current, primary and methodological sources.
 
 A technically sophisticated study should not receive extra credit merely because it is complicated. A simpler design can demonstrate full competence if it is well justified, feasible and well aligned.
+
+### Sample-size and power-analysis rule
+
+Do not treat the absence of a formal power analysis as a weakness by itself. Students were allowed to justify participant numbers in more than one way.
+
+Acceptable sample-size rationales can include:
+- a formal a priori or simulation-based power analysis;
+- participant numbers and effect sizes used in comparable prior studies;
+- published methodological guidance;
+- precision considerations;
+- a clearly reasoned feasibility-based justification appropriate to the study and MSc context.
+
+The relevant question is whether the proposed sample has a **defensible basis**, not whether the student has used G*Power or another formal power tool.
+
+If the student merely asserts that a sample is “large enough”, has “standard power”, or can detect a particular effect without providing either a calculation or an evidence-based comparison, this can still be identified as under-justified.
+
+A power analysis may be offered in feedback as **one possible suggestion** for strengthening or confirming the sample rationale, but do not state or imply that it was required.
 
 ## Academic integrity and source cautions
 
@@ -122,6 +140,7 @@ Before finalising each feedback document:
 - confirm total length is approximately 700–900 words;
 - keep internal subcriterion labels and scores hidden;
 - ground every substantive evaluative point in the student's submission;
-- retain manual-review flags where appropriate.
+- retain manual-review flags where appropriate;
+- confirm that no student has been penalised solely for omitting a formal power analysis where the sample size is otherwise justified from prior evidence or another defensible basis.
 
 Drafting and repository storage do not authorise sending or publishing feedback to students.
