@@ -1,6 +1,6 @@
 # Work Mode Prompt — PNS Research Proposal Stage 1 Cohort Scoring and Calibration
 
-Version 1.0 | 19 September 2026
+Version 1.1 | 20 September 2026
 
 Carry out Stage 1 grading calibration for the Psychobiology & Neuroscience Research Proposal Report cohort in:
 
@@ -74,11 +74,20 @@ Pay particular attention to:
 - causal language versus correlational design;
 - whether the analysis actually evaluates the hypothesis;
 - feasibility for an online MSc context;
+- sample-size justification: do not require a formal power analysis where the proposed N is reasonably justified from comparable prior studies, published effect sizes, methodological guidance, precision or a defensible feasibility rationale;
 - generic ethics boilerplate versus study-specific ethical reasoning;
 - limits of inference from indirect physiological or neural measures;
 - evaluated limitations versus lists;
 - methodological sources used to justify measures;
 - integration rather than serial summary of literature.
+
+### Power-analysis safeguard
+
+A formal power analysis is optional for this assignment. Do not score down a proposal simply because G*Power, simulation or another formal power calculation is absent.
+
+For C2D, ask whether the proposed sample size has a defensible basis. Prior studies, reported effect sizes, methodological guidance, precision arguments or a clearly reasoned feasibility rationale can all satisfy this requirement.
+
+Only treat sample-size justification as weak where the number is essentially asserted without a credible evidential or methodological basis. A power analysis may be noted later as a possible improvement, but not as a mandatory requirement.
 
 ## Required cohort outputs
 
