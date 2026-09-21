@@ -1,6 +1,6 @@
 # Work Mode Prompt — PNS Research Proposal Stage 1 Cohort Scoring and Calibration
 
-Version 1.1 | 20 September 2026
+Version 1.2 | 21 September 2026
 
 Carry out Stage 1 grading calibration for the Psychobiology & Neuroscience Research Proposal Report cohort in:
 
@@ -79,7 +79,15 @@ Pay particular attention to:
 - limits of inference from indirect physiological or neural measures;
 - evaluated limitations versus lists;
 - methodological sources used to justify measures;
-- integration rather than serial summary of literature.
+- integration rather than serial summary of literature;
+- whether the proposal contains a genuine biological/physiological/neuropsychological component: self-report alone is not a biological measure; a recognised neuropsychological test may qualify; biological sex may qualify when the hypothesis is explicitly grounded in physiological sex differences;
+- exact hypothesis–analysis mapping: each central confirmatory hypothesis needs an identifiable planned test/model term, although no analysis is conducted at proposal stage;
+- repeated/nested outcomes being analysed with a model that reflects that structure;
+- coefficient comparisons being tested formally rather than inferred from which standardised beta is larger;
+- specialist-equipment, assay, intervention and recruitment feasibility being demonstrated rather than assumed;
+- a missing required Timeline being treated as a substantive structural omission;
+- secondary/open-data governance covering consent/reuse conditions, storage, access, retention, derived files and no re-identification;
+- pseudonymisation versus anonymity being described accurately.
 
 ### Power-analysis safeguard
 
@@ -102,9 +110,19 @@ Stop after Stage 1 calibration outputs. Do not yet apply the conversion.
 
 After Stage 1 is approved, use GRADING_METHOD_Independent_Subcriteria.md.
 
-Current assignment target:
-- pre-penalty cohort mean = 67
-- target population SD = 10
+Current assignment calibration target:
+- pre-penalty cohort mean = **67**
+- target population SD = **10**
+
+These are calibration choices for this assignment, not University requirements. Stage 1 scoring must remain evidence-led and must not be reverse-engineered to hit a student's desired mark. The full-cohort conversion in GRADING_METHOD_Independent_Subcriteria.md is what brings the cohort to the target distribution after independent scoring.
+
+As a qualitative sanity check after conversion, the recent calibration should normally produce:
+- mid/high 70s for proposals that are excellent across nearly all criteria with only limited implementation refinements;
+- low 70s for strong Distinction-level proposals with one material methodological/ethical/structural weakness;
+- 60s for coherent Merit-level proposals with several meaningful limitations;
+- 50s for viable Pass-level proposals with substantial methodology, ethics, evidence or alignment weaknesses.
+
+These are **diagnostic anchors, not quotas or score templates**. If the converted grade and the evidence appear inconsistent, revisit the underlying Stage 1 evidence coding across the cohort rather than manually changing the percentage.
 
 ## Word-count penalty
 
