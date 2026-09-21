@@ -1,6 +1,6 @@
 # Student feedback instructions — PNS Research Proposal Report
 
-Version 1.1 | 20 September 2026
+Version 1.2 | 21 September 2026
 
 Use this file together with:
 - `grading_criteria.md`
@@ -46,6 +46,17 @@ Aim for approximately **700–900 words total**, including headings and bullets.
 
 Do not expose the 35 subcriterion names, internal codes, 0 / 0.5 / 1 scores, checklists, or internal calculation tables in student-facing feedback.
 
+Use the following student-facing register:
+- exactly **three Strengths bullets** and **three Areas for Improvement bullets**;
+- criterion headings in Title Case followed by the whole-number percentage;
+- one connected paragraph under each criterion;
+- concise evidence-specific praise such as “Excellent job here”, “Nicely done”, “Good work here” or “Well done here” where warranted;
+- no tables unless specifically requested;
+- avoid inflated praise when the criterion mark is below the Distinction band;
+- keep recommendations at proposal stage: ask students to **specify planned analyses**, not to conduct analyses before data collection.
+
+Where useful, weave in no more than one or two natural references to Workshop 3 (theory → mechanism → hypothesis; construct–measure and hypothesis–analysis alignment) or Workshop 4 (data lifecycle, participant-facing consistency). Do not make workshop references formulaic.
+
 ## Numerical explanation
 
 Where a numerical explanation is useful, use:
@@ -70,7 +81,7 @@ Use the student's declared assignment word count where that is the formal count 
 
 ## Narrative quality and evidence
 
-Address the student as **“you”**, use British English, and avoid contractions.
+Address the student as **“you”**, use British English, and use natural contractions where they improve fluency (for example “don’t”, “isn’t”, “you’ve”).
 
 Feedback must be specific to the student's own proposal. Explain:
 - what the student did;
@@ -102,6 +113,27 @@ In this assignment, feedback should pay particular attention to:
 - appropriate use of current, primary and methodological sources.
 
 A technically sophisticated study should not receive extra credit merely because it is complicated. A simpler design can demonstrate full competence if it is well justified, feasible and well aligned.
+
+### Biological / neuropsychological requirement in feedback
+
+Be explicit about whether the proposal satisfies the assignment's psychobiological/neuropsychological requirement.
+
+- Direct/indirect physiological measures such as HRV, SCR, cortisol, EEG or actigraphy satisfy it when scientifically relevant.
+- A recognised neuropsychological test can satisfy the neuropsychological component where it is genuinely part of the study question.
+- Biological sex can count as the biopsychological variable where the hypothesis is explicitly grounded in physiological sex differences. Do not demand an additional physiological measure solely for eligibility; instead clarify that a sex interaction cannot identify an unmeasured endocrine/circadian mechanism.
+- Self-report of a biological construct does not itself become a biological measure. For example, the PSQI is subjective sleep quality, not sleep physiology.
+- Do not automatically reject primary EEG. Judge access, equipment, software, expertise and timetable. Existing data are a fallback, not a mandatory substitute.
+- Primary fMRI, PET and structural MRI should normally be treated as impractical for the online MSc context unless exceptional verified access exists.
+
+### Analysis-plan requirement in feedback
+
+The proposal must state how each central confirmatory hypothesis will be tested. If H1/H2 merely say that an “appropriate test” or “predefined approach” will be used, identify this as a substantive Methodology weakness.
+
+Do **not** tell students to perform the analysis at proposal stage. Prefer: “Specify in the analysis plan how H2 will be tested using ... as the outcome.” Where a hypothesis compares two regression effects, require a formal interaction/contrast rather than inspection of which standardised beta is larger. Where outcomes are repeatedly measured, ensure the proposed model reflects the repeated structure unless aggregation is clearly justified.
+
+### Feasibility rule in feedback
+
+Separate **statistical justification** from **practical feasibility**. A well-justified N can still be unrealistic to recruit/test. Where specialist equipment, biological assays, repeated laboratory sessions, multi-week interventions or unusually high recruitment are proposed, comment on actual access and throughput. If a powered confirmatory study is not realistic but the design itself is valuable, suggest a pilot/feasibility framing rather than pretending the target N is achievable.
 
 ### Sample-size and power-analysis rule
 
@@ -141,6 +173,12 @@ Before finalising each feedback document:
 - keep internal subcriterion labels and scores hidden;
 - ground every substantive evaluative point in the student's submission;
 - retain manual-review flags where appropriate;
-- confirm that no student has been penalised solely for omitting a formal power analysis where the sample size is otherwise justified from prior evidence or another defensible basis.
+- confirm that no student has been penalised solely for omitting a formal power analysis where the sample size is otherwise justified from prior evidence or another defensible basis;
+- confirm that every central hypothesis maps to a specified planned inferential test/model term;
+- confirm that the proposal genuinely contains a biological/physiological/neuropsychological component under the assignment rule, with the biological-sex exception applied correctly;
+- confirm that feasibility has been judged separately from sample-size calculation;
+- confirm that a missing required Timeline has been treated as a substantive Structure/Presentation omission;
+- recompute the weighted overall from the displayed criterion marks before reporting it, using 20/20/20/10/10/10/10, and check the arithmetic independently;
+- if an older stored feedback file conflicts with the current evidence or weighting, update the feedback rather than preserving an arithmetic or methodological error.
 
 Drafting and repository storage do not authorise sending or publishing feedback to students.
