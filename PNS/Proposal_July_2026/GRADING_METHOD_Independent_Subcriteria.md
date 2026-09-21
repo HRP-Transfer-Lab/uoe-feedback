@@ -1,6 +1,6 @@
 # PNS Research Proposal — Grading from Calibrated Competence Scores
 
-Version 1.0 | 19 September 2026
+Version 1.1 | 21 September 2026
 
 ## Status and scope
 
@@ -138,6 +138,18 @@ Before rounding this guarantees:
 
 The affine conversion preserves the shape of the weighted competence distribution; it does not force normality.
 
+## 7A. Qualitative consistency check after conversion
+
+After the numerical conversion, compare the resulting profile with the evidence-based narrative. This is a **sanity check only** and must not become a second grading mechanism.
+
+Typical interpretation in the current calibration:
+- approximately 74–76: strong Distinction profile, generally excellent with only limited or isolated weaknesses;
+- approximately 70–73: Distinction-level overall with at least one material criterion weakness;
+- approximately 60–69: Merit profile, coherent and viable but with multiple meaningful limitations;
+- approximately 50–59: Pass profile, plausible study but with substantial weaknesses in implementation, evidence, ethics or alignment.
+
+Do not manually move a mark to fit these ranges. If there is a striking mismatch, revisit the underlying Stage 1 codes consistently across comparable papers and then rerun the full cohort conversion.
+
 ## 8. Bounds and interpretation
 
 Check all converted criterion and overall grades against 0–100.
@@ -216,3 +228,7 @@ Also retain subcriterion and criterion distribution summaries for calibration re
 - Do not convert each criterion against its own distribution.
 - Do not apply an additional uplift after the affine conversion.
 - Do not treat a converted mark as evidence of competence that was not present in the submission.
+- The target mean of 67 and target population SD of 10 apply to the **full eligible cohort pre-penalty**, not to each student, criterion or small ad-hoc subset.
+- When marking a single paper outside the full cohort, do not invent a local rescaling to force it toward 67. Use the existing calibrated criterion marks/conversion where available, or flag that full cohort conversion is required.
+- Before student-facing feedback is finalised, recompute the overall directly from the displayed seven criterion percentages using the official 20/20/20/10/10/10/10 weights as an arithmetic cross-check. The displayed criterion marks and displayed overall should reconcile to rounding tolerance.
+- If a manual evidence review changes a criterion mark, recalculate the weighted overall; do not preserve an older total.
