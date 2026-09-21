@@ -23,6 +23,22 @@ Assess whether the student:
 - applies relevant critical-thinking/argumentation theory;
 - persuades ethically and appropriately for a public audience.
 
+## Prospective requirement: primary research on argumentation and persuasion
+
+**Added 21 September 2026 for future assignments using this rubric.** Include this requirement in the assignment guidance before students submit. It supplements the existing criteria; it does not retrospectively change the requirements or scores for the August 2026 cohort.
+
+In addition to the existing topic evidence and designated Halpern and Dunn core text, students must substantively use:
+- at least one relevant original primary empirical study of argumentation (for example, argument construction, argument evaluation, warrants, counterarguments or argumentation training); and
+- at least one relevant original primary empirical study of persuasion (for example, message sidedness, source credibility, narrative, analogy or audience processing).
+
+Both areas must be supported. A single study may satisfy both requirements only where it directly investigates both and the student explains each connection. No particular author, model or named study is compulsory.
+
+An original primary empirical study reports an original investigation with identifiable methods, data and results, including original analyses of existing data. A textbook, theoretical monograph or article without empirical results, systematic review, meta-analysis, seminar slide, video, blog or popular summary does not meet this particular requirement. Such sources remain valuable for theory, synthesis or explanation. An original theoretical source for Toulmin or another framework supports the framework's provenance but does not replace empirical research on its use or effects.
+
+The student must engage with the original research report rather than rely solely on a secondary account. Citation or reference-list inclusion alone is insufficient: explain the relevant finding, connect it to a specific argumentation or persuasion choice in the blog, and acknowledge material limits on its applicability. Do not assume that a technique is effective for this audience merely because a study found an effect in another setting. Topic research alone (for example, studies comparing online and classroom learning) cannot satisfy these requirements unless it directly investigates the relevant argumentation or persuasion process.
+
+Apply the scoring anchors under C3A, C3B and C5D below. Preserve all existing subcriteria, criterion maxima (5, 6, 5, 7, 6), university weights and the separate cohort-conversion procedure.
+
 ## 2. Internal subcriterion scoring
 
 Score every subcriterion using only:
@@ -138,6 +154,11 @@ Merely presenting a list of pros and cons is not sufficient for full credit. Hig
 ### A. Application of an argumentation method
 Evaluate whether an evidence-based argumentation framework, such as Toulmin, visibly shapes the actual blog argument rather than appearing only in the Methods paragraph. The Methods paragraph should explicitly use the term argument or argumentation and explain how the framework was applied.
 
+For future assignments subject to the prospective requirement:
+- **1:** A relevant framework is accurately and visibly applied; Methods explains how; and relevant original primary argumentation research is substantively connected to that application, with appropriate attention to its scope.
+- **0.5:** There is meaningful but incomplete application or explanation, or the application is otherwise adequate but its required primary-research support is missing or superficial.
+- **0:** No meaningful application is identifiable, the framework is only named, or its use is seriously misunderstood. Missing primary research alone does not reduce an otherwise meaningful application to 0.
+
 ### B. Application of persuasion techniques
 Evaluate appropriate evidence-based persuasion techniques, for example:
 
@@ -152,6 +173,13 @@ Evaluate appropriate evidence-based persuasion techniques, for example:
 - making the argument easy to understand.
 
 The Methods paragraph should identify and explain at least some of the persuasion techniques actually used.
+
+For future assignments subject to the prospective requirement:
+- **1:** Appropriate techniques visibly shape the blog; Methods identifies and explains their persuasive function; and relevant original primary persuasion research is substantively connected to those choices, with appropriate attention to its scope.
+- **0.5:** Techniques are used but their explanation or empirical grounding is incomplete; or the blog is persuasive but Methods does not adequately explain why the techniques were chosen. A token citation is not sufficient for full credit.
+- **0:** No meaningful appropriate application is identifiable, or techniques are seriously misunderstood or misapplied. Missing primary research alone does not reduce an otherwise meaningful application to 0.
+
+Fluent writing, an engaging opening or balanced coverage cannot by themselves earn 1 for C3A or C3B.
 
 ### C. Ethical and evidence-based persuasion
 Evaluate whether the student persuades through evidence, reasoning and fair representation rather than exaggeration, emotional manipulation or selective omission. Personal or emotional material may support the argument but should not replace evidence.
@@ -215,6 +243,11 @@ Evaluate whether the reading combines sufficiently recent topic research with ol
 ### D. Use of primary and secondary evidence
 Evaluate whether important empirical claims are traced to primary research where reasonably possible rather than relying mainly on textbooks, popular summaries, websites or secondary accounts.
 
+For future assignments subject to the prospective requirement, assess primary evidence across the substantive topic, argumentation and persuasion:
+- **1:** Important topic claims are appropriately traced to primary research where reasonably possible, and original primary studies in both argumentation and persuasion are substantively used. The distinct roles of primary findings, theory and secondary synthesis are understood.
+- **0.5:** Some relevant primary research is substantively used, but argumentation or persuasion (or both) lacks the required primary support, or important claims rely too heavily on secondary accounts. Strong topic research alone cannot earn 1 here.
+- **0:** There is no meaningful use of relevant primary empirical research, or primary and secondary evidence are seriously misrepresented. A reference-list entry without engagement is not meaningful use.
+
 ### E. Use of evidence synthesis
 Evaluate whether the student uses at least one relevant systematic review, meta-analysis or high-quality scholarly review where suitable evidence synthesis is available.
 
@@ -222,6 +255,16 @@ Evaluate whether the student uses at least one relevant systematic review, meta-
 Evaluate whether sources are compared, evaluated and integrated into the argument rather than simply presented one after another or used decoratively. The relevance, strength or limitations of important evidence should be explained.
 
 Do not penalise a student simply because most references concern the chosen content topic. The substantive topic requires an appropriate evidence base. The issue is whether the submission also demonstrates sufficient engagement with the critical-thinking, argumentation and persuasion literature used to construct the assignment.
+
+## Calibration checks for the prospective research requirement
+
+Record the original study and the passage demonstrating its use for argumentation and for persuasion. Compare these records across the cohort before finalising scores.
+
+C3A and C3B assess application and its explanation; C5D assesses engagement with primary evidence. Score each against its own anchors and give criterion-specific reasons. Do not apply an additional blanket deduction or automatic overall grade ceiling for the same omission. Do not automatically lower unrelated subcriteria such as presentation or source-count coverage.
+
+Read C5A's source-count rule alongside the other reading criteria: ten references can meet the range threshold without demonstrating full primary-research engagement or integration. Similarly, citing Halpern and Dunn can satisfy C1B when meaningfully used, but does not by itself fulfil the additional primary-study requirements.
+
+Before conversion, reconcile the scoring matrix with the narrative. If feedback identifies a substantive omission in explaining persuasion, applying an argumentation framework or using required primary research, the corresponding subcriterion must not retain 1 without a documented justification consistent with these anchors. A target cohort mean is not evidence that the original competence scores are justified.
 
 ## Later stages: conversion and student feedback
 
