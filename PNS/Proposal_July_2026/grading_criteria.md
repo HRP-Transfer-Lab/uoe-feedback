@@ -1,6 +1,6 @@
 # PNS Research Proposal — Subcriterion Scoring Rubric
 
-Version 1.1 | 20 September 2026
+Version 1.2 | 21 September 2026
 
 ## 1. Purpose and assessment structure
 
@@ -26,6 +26,20 @@ Do not introduce hidden requirements that are not in the assessment brief. In pa
 - a separate Discussion section is not compulsory.
 
 Relevant critical interpretation, implications and limitations can be demonstrated wherever they occur in the proposal.
+
+### Psychobiological / neuropsychological eligibility rule
+
+The proposal must contain a genuine **biological, neural, physiological or neuropsychological component** rather than merely discussing a biologically relevant topic.
+
+For this assignment, the requirement can be satisfied by one of the following when appropriately justified:
+- a direct or indirect biological / physiological measure (for example ECG/HRV, SCR/EDA, cortisol, EEG, actigraphy);
+- a neural or psychophysiological measure in a suitable existing dataset;
+- a recognised/classic neuropsychological test where the neuropsychological measure is genuinely part of the study's scientific question;
+- **biological sex as a biopsychological variable**, where the hypothesis is explicitly grounded in physiological sex differences (for example endocrine, circadian, metabolic or autonomic differences). In this case, do not require an additional physiological recording merely to make the study psychobiological, but do make clear that a sex interaction cannot identify an unmeasured hormonal or physiological mechanism.
+
+A self-report measure of a biologically relevant construct is **not by itself a biological measure**. For example, subjective sleep quality on the PSQI is not sleep physiology. A behavioural task does not automatically become a biological measure because its performance depends on the brain.
+
+Primary fMRI, PET and structural MRI data collection should normally be treated as impractical for this online MSc context. Primary EEG is not inherently unacceptable: research-grade or consumer EEG may be viable where access, software, technical support and feasibility are credibly demonstrated. Existing datasets are an acceptable alternative, not a mandatory replacement.
 
 ## 2. Internal Stage 1 scoring
 
@@ -107,12 +121,26 @@ Do **not** lower this criterion merely because the student has not conducted a p
 
 Correct alignment matters more than unnecessary statistical complexity.
 
+### Essential hypothesis–analysis mapping rule
+
+At proposal stage the student is **not required to run the analysis**, but the planned analysis must be sufficiently specified to show how each confirmatory hypothesis will be tested.
+
+For every substantive confirmatory hypothesis, identify the planned inferential test, model, comparison or model term. Statements such as “an appropriate prespecified group-level test will be used” or “a predefined approach will compare conditions” are not enough for a fully demonstrated analysis plan.
+
+If one or more central hypotheses have no identifiable planned inferential test, treat this as a **material methodology weakness**, not a minor presentational omission. Depending on the rest of the methodology, this will normally prevent C2E from being fully demonstrated and may justify a criterion-level Methodology mark in the Merit or Pass range after cohort conversion.
+
+Do not phrase feedback as though the student must conduct the analysis now. Use wording such as “Specify in the analysis plan how H2 will be tested...” rather than “Add/complete the analysis.”
+
 ## C2F — Procedure, feasibility and implementation
 **1:** Provides a sufficiently reproducible procedural outline and proposes a study realistic for the available population, equipment, access, expertise and timeframe.
 **0.5:** Study is broadly feasible but important practical details or constraints remain unresolved.
 **0:** Major elements are not implementable as proposed or the procedural description is too incomplete to judge implementation.
 
 Feasibility should be judged against realistic online MSc constraints rather than an assumed fully resourced neuroscience laboratory.
+
+Feasibility is part of methodology, not an optional afterthought. Where a study requires specialist equipment, laboratory processing, biological assays, lengthy interventions or unusually high recruitment, look for credible evidence of access and throughput. Examples include ECG/EDA/EEG hardware, assay laboratories, sample transport and storage, participant pools, testing space, software and technical support.
+
+A statistically justified sample can still be **practically unrealistic**. If a power calculation implies a sample that cannot plausibly be recruited/tested within the MSc resources, credit the sample-size reasoning but lower implementation/feasibility appropriately. Where suitable, feedback may suggest reframing the project as a pilot or feasibility study, making clear that this changes the inferential emphasis from a definitive confirmatory test to feasibility, data quality, effect estimation and uncertainty.
 
 # 5. Criterion 3 — Ethical Considerations — 20%
 
@@ -137,6 +165,8 @@ Feasibility should be judged against realistic online MSc constraints rather tha
 **0:** Ignores an important foreseeable issue, for example health-data interpretation, pharmacological risk, vulnerable neurological populations, incidental information, physiological burden or inappropriate diagnostic implications.
 
 Do not reward students for inventing neuroethical problems in a simple minimal-risk study.
+
+For secondary/open-data studies, public availability does not remove the need for an ethics/governance plan. Credit students who verify original consent/reuse conditions and address local storage, access, retention, derived files and no re-identification. Do not demand new participant consent where the original consent and reuse conditions already cover the proposed analysis.
 
 ## C3E — Ethical reasoning and research value
 **1:** Moves beyond procedural compliance by explicitly balancing scientific value, participant burden, risk/benefit and relevant ethical principles.
@@ -277,10 +307,35 @@ Subcriteria are equally weighted within each parent criterion only.
 
 Do not add all 35 raw subcriterion points together to determine the grade. The official criterion weights must be applied only after each criterion has been normalised to a common 0–1 scale.
 
-# 12. Word-count penalty
+# 12. Proposal-specific grading guardrails
+
+Apply these consistently across the cohort:
+
+- **Power analysis:** optional. Do not deduct marks solely because no formal power analysis is present when N has another defensible evidence-based rationale. Fixed secondary datasets do not require a retrospective/a priori power calculation; discuss precision, interaction detectability or sensitivity instead where relevant.
+- **Null hypothesis:** not required.
+- **Expected Results / Discussion:** not required. Do not penalise their absence. If included, assess the quality of reasoning but note if unnecessary sections displace required methodological detail.
+- **Biological measure:** enforce the eligibility rule above. Subjective/self-report biological constructs do not count as physiological measures by themselves.
+- **Neuropsychological tests:** a recognised neuropsychological test can satisfy the neuropsychological side of the assignment where appropriately tied to the research question.
+- **Biological sex:** can satisfy the biopsychological variable requirement when explicitly grounded in physiological sex differences; do not require a second biological measure solely for eligibility.
+- **Analysis plans:** exact planned tests/model terms are required for central confirmatory hypotheses, but analyses do not need to be carried out at proposal stage.
+- **Interactions/moderation:** do not accept visual comparison of coefficients or standardised betas as a formal test that two effects differ. The proposed analysis must test the interaction or coefficient contrast directly.
+- **Repeated measures:** the analysis must reflect repeated/nested observations where these are part of the design. Collapsing repeated measurements can be acceptable only if justified and compatible with the hypothesis.
+- **Indirect indices:** insist on precise interpretation (for example RMSSD as an indirect index of vagally mediated cardiac regulation; SCR as sympathetic electrodermal activity; HCC as longer-term cortisol exposure rather than subjective chronic stress).
+- **Secondary/open data:** assess consent/reuse conditions, governance and no-reidentification, not only the fact that data are public.
+- **Participant materials:** check that terminology, withdrawal, retention, contact details, partial disclosure/debriefing and data status are consistent with the main proposal.
+- **Anonymity:** where participant codes/linkage permit withdrawal for a period, describe the data as pseudonymised until the link is destroyed rather than fully anonymous.
+- **Feasibility:** specialist equipment, assay access, intervention supply/blinding and laboratory throughput must be credible. A technically sophisticated design is not automatically a high-methodology design if it cannot be implemented.
+- **Primary EEG:** permissible when realistically supported; do not automatically reject it. Existing EEG datasets may be suggested as a fallback when access is not demonstrated.
+- **Primary MRI/PET:** treat as impractical for this online MSc unless exceptional verified access is demonstrated.
+
+# 13. Word-count penalty
 
 The word-count penalty is external to this competence rubric and external to the cohort conversion.
 
 The permitted maximum before penalty is 2,200 words. If the submission exceeds this limit, first calculate the academically derived grade in full. Then apply the prescribed 10 grade-point deduction as a separately recorded post-conversion penalty.
 
 Do not lower C7, any other criterion, or the Stage 1 competence codes merely because the proposal exceeds the word-count threshold. This prevents double penalisation.
+
+
+### Timeline safeguard
+The **Timeline is a required element** of this assignment. A missing timeline is a substantial structural omission and should normally prevent a high C7 score. Do not penalise Structure merely because a proposal exceeds the word limit; use the separate word-count penalty.
